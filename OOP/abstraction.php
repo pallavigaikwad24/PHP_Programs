@@ -16,10 +16,25 @@ class Circle extends Shape {
     }
 }
 
+class Triangle extends Shape {
+
+    private $base;
+    private $height;
+ 
+    function __construct ($base, $height) {
+        $this -> base = $base;
+        $this -> height = $height;
+    }
+
+    function calculateArea() {
+        return 1/2 * $this -> base * $this -> height;
+    }
+}
+
 $circle = new Circle (5);
+$triangle = new Triangle (20, 15);
 
-$areaOfCircle = $circle -> calculateArea();
-
-echo "The area of the Circle is: $areaOfCircle";
+echo "The area of the Circle is: {$circle -> calculateArea()} \n";
+echo "The area of the Triangle is: {$triangle -> calculateArea()} \n";
 
 ?>
