@@ -5,27 +5,44 @@ class Car {
     private $color;
     private $fuelLevel;
 
-    public function __constract ($model, $color) {
+    function __construct ($model, $color) {
         $this -> model = $model;
         $this -> color = $color;
         $this -> fuelLevel = 100;
     }
 
-    public function get_model () {
+    function get_model () {
         return $this -> model;
     }
 
-    public function get_color () {
+    function get_color () {
         return $this -> color;
     }
 
-    public function get_fuelLevel () {
+    function get_fuelLevel () {
         return $this -> fuelLevel;
+    }
+
+    function drive () {
+        $this -> fuelLevel -= 10;
+
+        if ( $this -> fuelLevel < 0 ) {
+            $this -> fuelLevel = 0;
+        }
     }
 }
 
 $suzuki = new Car ("Suzuki", "Black");
 
-echo $suzuki -> get_color () . "of" . $suzuki -> get_model () . " the fuel level is " . $suzuki -> get_fuelLevel();
+echo "Model :" . $suzuki -> get_color () ."\n";
+echo "Color :" . $suzuki -> get_model () ."\n";
+
+echo "Initial Fuel Level :" . $suzuki -> get_fuelLevel ();
+
+$suzuki -> drive ();
+
+echo "\n";
+
+echo "After Drive Fuel Level :" . $suzuki -> get_fuelLevel ();
 
 ?>
